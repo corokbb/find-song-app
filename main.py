@@ -149,12 +149,7 @@ if btn_serach:
     if text_artist == "kakuduke":
         btn_A = st.button("A")
         btn_B = st.button("B")
-    
-        if btn_A:
-            music_play("a")
-        if btn_B:
-            music_play("b")
-    
+
     else:
         whole = len(df)
         count = len(result)
@@ -168,4 +163,9 @@ if btn_serach:
 
 # streamlit run d:\Python\find-song-app\main.py
 
+    
+if btn_A:
+    music_play("a")
+if btn_B:
+    music_play("b")
 
