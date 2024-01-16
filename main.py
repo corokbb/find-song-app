@@ -116,7 +116,10 @@ df["artist_name"]  = df["artist_name"].fillna("")
 
 def construct(result):
 
-    music_play("result")
+    if preset == "kinaphar":
+        music_play("result2")
+    else:
+        music_play("result")
     time.sleep(3.9)
 
     if count == 0:
