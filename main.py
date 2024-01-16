@@ -1,4 +1,3 @@
-import time
 import streamlit as st
 import pandas as pd
 
@@ -19,70 +18,22 @@ data_url2 = base64.b64encode(contents).decode("utf-8")
 file_ = open("resorce/img/logo.png", "rb")
 contents = file_.read()
 data_url3 = base64.b64encode(contents).decode("utf-8")
-
-
-file_ = open("resorce/img/u1.gif", "rb")
-contents = file_.read()
-data_url_u1 = base64.b64encode(contents).decode("utf-8")
-file_ = open("resorce/img/u2.gif", "rb")
-contents = file_.read()
-data_url_u2 = base64.b64encode(contents).decode("utf-8")
-file_ = open("resorce/img/nansuka.png", "rb")
-contents = file_.read()
-data_url_u3 = base64.b64encode(contents).decode("utf-8")
-
 file_.close()
 
 # st.markdown(
 #     f'',
 #     unsafe_allow_html=True,
 #     )
-
-def music_play(file):
-    audio_path1 = f'resorce/audio/{file}.wav' 
-    audio_placeholder = st.empty()
-    file_ = open(audio_path1, "rb")
-    contents = file_.read()
-    file_.close()
-
-    audio_str = "data:audio/ogg;base64,%s"%(base64.b64encode(contents).decode())
-    audio_html = """
-                    <audio autoplay=True>
-                    <source src="%s" type="audio/ogg" autoplay=True>
-                    Your browser does not support the audio element.
-                    </audio>
-                """ %audio_str
-    audio_placeholder.empty()
-    time.sleep(0.1) #これがないと上手く再生されません
-    audio_placeholder.markdown(audio_html, unsafe_allow_html=True)
-
-
-
+st.markdown(f'<center><img src="data:image/gif;base64,{data_url1}" alt="cat gif"><img src="data:image/gif;base64,{data_url3}" \
+            alt="cat gif"><img src="data:image/gif;base64,{data_url2}" alt="cat gif"></center>', unsafe_allow_html=True)
 
 if 'artist_name' not in st.session_state: 
     st.session_state.artist_name = ""
-
-
-if 'preset' not in st.session_state: 
-    st.session_state.preset = ""
-
-if st.session_state.preset == "ゆにかーる":
-    st.markdown(f'<center><img src="data:image/gif;base64,{data_url_u1}" alt="cat gif"><img src="data:image/gif;base64,{data_url_u3}" \
-                alt="cat gif"><img src="data:image/gif;base64,{data_url_u2}" alt="cat gif"></center>', unsafe_allow_html=True)
-    music_play("nansuka")
-
-else:
-    st.markdown(f'<center><img src="data:image/gif;base64,{data_url1}" alt="cat gif"><img src="data:image/gif;base64,{data_url3}" \
-                alt="cat gif"><img src="data:image/gif;base64,{data_url2}" alt="cat gif"></center>', unsafe_allow_html=True)
-
-
-
 
 upcol1, upcol2, _ = st.columns([3, 1, 8])
 preset = upcol1.selectbox(
     'プリセット',
      ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩'))
-st.session_state.preset = preset
 
 if preset == "Alkome":
     st.session_state.artist_name = "Alkome|0x63|tukumo99|Temesgen Markos"
@@ -95,7 +46,7 @@ elif preset == "kinaphar":
 elif preset == "ゆにかーる":
     st.session_state.artist_name = "ゆにかーる|unicurl|uni-c|UNIC|古河ユニック|古河気合筋肉|湯西川将吾"
 elif preset == "Sohwe":
-    st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ"
+    st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ|"
 elif preset == "hnxqch":
     st.session_state.artist_name = "野獣先輩"
 elif preset == "塩":
@@ -111,28 +62,15 @@ btn_serach  = col2.button("search", help="検索っちもん")
 df = pd.read_csv("csv/musiclist.csv")
 df["artist_name"]  = df["artist_name"].fillna("")
 
-
-
-
 def construct(result):
-
-    music_play("result")
-    time.sleep(3.9)
-
-    if count == 0:
-        music_play("unic")
-
-    st.write(f"{count} / {whole}件ヒットしました")
     for row in result.itertuples():
         album_id = row[1]
         track_id = row[4]
         print(album_id, track_id)
-        time.sleep(0.1)
+
         st.markdown(f"""
         <iframe style="border: 0; width: 50%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album={album_id}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track={track_id}/transparent=true/" seamless><a href="https://tsukubadtm.bandcamp.com/album/exp80-12-ep"></a></iframe>
         """, unsafe_allow_html=True)
-
-
 
 
 if btn_serach:
@@ -142,12 +80,12 @@ if btn_serach:
     whole = len(df)
     count = len(result)
     if count <= 100:
-        
+        st.write(f"{count} / {whole}件ヒットしました")
         construct(result)
     else:
-        music_play("unic")
         st.write(f"検索結果が100を超えているため表示できません, {count}/{whole}")
 
 
-# streamlit run d:\Python\find-song-app\main.py
+
+
 
