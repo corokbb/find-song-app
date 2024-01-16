@@ -46,7 +46,7 @@ elif preset == "kinaphar":
 elif preset == "ゆにかーる":
     st.session_state.artist_name = "ゆにかーる|unicurl|uni-c|UNIC|古河ユニック|古河気合筋肉|湯西川将吾"
 elif preset == "Sohwe":
-    st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ|"
+    st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ"
 elif preset == "hnxqch":
     st.session_state.artist_name = "野獣先輩"
 elif preset == "塩":
