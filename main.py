@@ -140,32 +140,22 @@ def construct(result):
 
 
 
-
 if btn_serach:
     print(text_artist)
     result = df[(df["artist_name"].str.contains(text_artist, case=False)) | (df["music_name"].str.contains(text_artist, case=True))]
 
-
-    if text_artist == "kakuduke":
-        btn_A = st.button("A")
-        btn_B = st.button("B")
-
+    whole = len(df)
+    count = len(result)
+    if count <= 100:
+        
+        construct(result)
     else:
-        whole = len(df)
-        count = len(result)
-        if count <= 100:
-            
-            construct(result)
-        else:
-            music_play("unic")
-            st.write(f"検索結果が100を超えているため表示できません, {count}/{whole}")
+        music_play("unic")
+        st.write(f"検索結果が100を超えているため表示できません, {count}/{whole}")
 
 
 # streamlit run d:\Python\find-song-app\main.py
 
     
-if btn_A:
-    music_play("a")
-if btn_B:
-    music_play("b")
+
 
