@@ -6,7 +6,7 @@ import base64
 import streamlit.components.v1 as stc
 
 st.set_page_config(
-    page_title="モ　ン　チ　ー　チ　ー　チ　ー　ア　プ　リ", 
+    page_title="Find Song App", 
     layout="wide", 
 )
 
@@ -100,7 +100,7 @@ elif preset == "ゆにかーる":
 elif preset == "Sohwe":
     st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ"
 elif preset == "hnxqch":
-    st.session_state.artist_name = "hnxqch|&2|豚骨|"
+    st.session_state.artist_name = "hnxqch|&2|豚骨"
 elif preset == "塩":
     st.session_state.artist_name = "塩|Shion Sakamoto" 
 elif preset == "TeIXe":
