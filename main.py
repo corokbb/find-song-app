@@ -83,7 +83,8 @@ if st.session_state.syaken:
 upcol1, upcol2, _ = st.columns([3, 1, 8])
 preset = upcol1.selectbox(
     'プリセット',
-     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "TeIXe", "1 Room Songs", "oblivious"))
+     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "TeIXe", "1 Room Songs", "oblivious", "ねこまりもん", \
+           "やわらか浪人生", "人畜無害な人間", "かーぼんぶりゅれ", "ゆせい", "フトンガメ", "高林治紀", "Nettle", "ヒマラヤロードレース", "Lem"))
 st.session_state.preset = preset
 
 if preset == "Alkome":
@@ -99,17 +100,44 @@ elif preset == "ゆにかーる":
 elif preset == "Sohwe":
     st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ"
 elif preset == "hnxqch":
-    st.session_state.artist_name = "野獣先輩"
+    st.session_state.artist_name = "hnxqch|&2|豚骨|"
 elif preset == "塩":
-    st.session_state.artist_name = "塩" 
+    st.session_state.artist_name = "塩|Shion Sakamoto" 
 elif preset == "TeIXe":
     st.session_state.artist_name = "TeIXe|Piter Robinson"
 elif preset == "1 Room Songs":
     st.session_state.artist_name = "1 Room Songs"
 elif preset == "oblivious":
-    st.session_state.artist_name = "oblivious|衿"
+    st.session_state.artist_name = "oblivious"
+elif preset == "ねこまりもん":
+    st.session_state.artist_name = "ねこまりもん"
+elif preset == "やわらか浪人生":
+    st.session_state.artist_name = "やわらか浪人生|アメミヤトワ"
+elif preset == "人畜無害な人間":
+    st.session_state.artist_name = "人畜無害な人間"
+elif preset == "かーぼんぶりゅれ":
+    st.session_state.artist_name = "かーぼんぶりゅれ"
+elif preset == "ゆせい":
+    st.session_state.artist_name = "ゆせい"
+elif preset == "フトンガメ":
+    st.session_state.artist_name = "フトンガメ"
+elif preset == "高林治紀":
+    st.session_state.artist_name = "高林治紀|Rerohm"
+elif preset == "Nettle":
+    st.session_state.artist_name = "Nettle|うずくま"
+elif preset == "Daiyaki":
+    st.session_state.artist_name = "Daiyaki"
+elif preset == "ヒマラヤロードレース":
+    st.session_state.artist_name = "ヒマラヤロードレース"
+elif preset == "Lem":
+    st.session_state.artist_name = "Lem"
+
+
 
 st.write(f"データ:2024/01/15時点")
+
+
+
 
 col1, col2 = st.columns([3, 1])
 text_artist = col1.text_input("アーティスト名(正規表現が使えます)", st.session_state.artist_name)
