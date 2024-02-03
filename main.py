@@ -62,26 +62,28 @@ def music_play(file):
 if 'artist_name' not in st.session_state: 
     st.session_state.artist_name = ""
 
-
 if 'preset' not in st.session_state: 
     st.session_state.preset = ""
 
-if st.session_state.preset == "ゆにかーる":
-    st.markdown(f'<center><img src="data:image/gif;base64,{data_url_u1}" alt="cat gif"><img src="data:image/gif;base64,{data_url_u3}" \
-                alt="cat gif"><img src="data:image/gif;base64,{data_url_u2}" alt="cat gif"></center>', unsafe_allow_html=True)
-    music_play("nansuka")
+if 'syaken' not in st.session_state: 
+    st.session_state.syaken = False
 
-else:
-    st.markdown(f'<center><img src="data:image/gif;base64,{data_url1}" alt="cat gif"><img src="data:image/gif;base64,{data_url3}" \
-                alt="cat gif"><img src="data:image/gif;base64,{data_url2}" alt="cat gif"></center>', unsafe_allow_html=True)
+if st.session_state.syaken:
 
+    if st.session_state.preset == "ゆにかーる":
+        st.markdown(f'<center><img src="data:image/gif;base64,{data_url_u1}" alt="cat gif"><img src="data:image/gif;base64,{data_url_u3}" \
+                    alt="cat gif"><img src="data:image/gif;base64,{data_url_u2}" alt="cat gif"></center>', unsafe_allow_html=True)
+        music_play("nansuka")
 
+    else:
+        st.markdown(f'<center><img src="data:image/gif;base64,{data_url1}" alt="cat gif"><img src="data:image/gif;base64,{data_url3}" \
+                    alt="cat gif"><img src="data:image/gif;base64,{data_url2}" alt="cat gif"></center>', unsafe_allow_html=True)
 
 
 upcol1, upcol2, _ = st.columns([3, 1, 8])
 preset = upcol1.selectbox(
     'プリセット',
-     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩'))
+     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "TeIXe", "1 Room Songs", "oblivious"))
 st.session_state.preset = preset
 
 if preset == "Alkome":
@@ -89,7 +91,7 @@ if preset == "Alkome":
 elif preset == "るぷろん":
     st.session_state.artist_name = "Chanor|Luphus|​Pulon|帆立|HTT|筑波変拍子音楽研究会"
 elif preset == "corok-Bb":
-    st.session_state.artist_name = "corok-Bb|corok-Pp|corok|DJ Ore|Omunifas|Omunifassm|ラ​ー​メ​ン​パ​ラ​ダ​イ​ス​オ​ー​ケ​ス​ト​ラ"
+    st.session_state.artist_name = "corok-Bb|corok-Pp|corok|DJ Ore|Omunifas|Omunifassm|Northbangerz|ラ​ー​メ​ン​パ​ラ​ダ​イ​ス​オ​ー​ケ​ス​ト​ラ"
 elif preset == "kinaphar":
     st.session_state.artist_name = "kinaphar|きなふぁ|rahpanik|Crystarhythm"
 elif preset == "ゆにかーる":
@@ -99,7 +101,13 @@ elif preset == "Sohwe":
 elif preset == "hnxqch":
     st.session_state.artist_name = "野獣先輩"
 elif preset == "塩":
-    st.session_state.artist_name = "塩"
+    st.session_state.artist_name = "塩" 
+elif preset == "TeIXe":
+    st.session_state.artist_name = "TeIXe|Piter Robinson"
+elif preset == "1 Room Songs":
+    st.session_state.artist_name = "1 Room Songs"
+elif preset == "oblivious":
+    st.session_state.artist_name = "oblivious|衿"
 
 st.write(f"データ:2024/01/15時点")
 
@@ -116,14 +124,16 @@ df["artist_name"]  = df["artist_name"].fillna("")
 
 def construct(result):
 
-    if preset == "kinaphar":
-        music_play("result2")
-    else:
-        music_play("result")
-    time.sleep(3.9)
+    if st.session_state.syaken:
+        if preset == "kinaphar":
+            music_play("result2")
+        else:
+            music_play("result")
+            
+        time.sleep(3.9)
 
-    if count == 0:
-        music_play("unic")
+        if count == 0:
+            music_play("unic")
 
     st.write(f"{count} / {whole}件ヒットしました")
     for row in result.itertuples():
