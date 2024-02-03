@@ -124,6 +124,9 @@ df["artist_name"]  = df["artist_name"].fillna("")
 
 def construct(result):
 
+    if text_artist == "UNIC":
+        st.session_state.syaken = True
+
     if st.session_state.syaken:
         if preset == "kinaphar":
             music_play("result2")
@@ -134,6 +137,7 @@ def construct(result):
 
         if count == 0:
             music_play("unic")
+
 
     st.write(f"{count} / {whole}件ヒットしました")
     for row in result.itertuples():
