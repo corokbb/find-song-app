@@ -83,7 +83,7 @@ if st.session_state.syaken:
 upcol1, upcol2, _ = st.columns([3, 1, 8])
 preset = upcol1.selectbox(
     'プリセット',
-     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "TeIXe", "1 Room Songs", "oblivious", "ねこまりもん", \
+     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "dim.", "TeIXe", "1 Room Songs", "oblivious", "ねこまりもん", \
            "やわらか浪人生", "人畜無害な人間", "かーぼんぶりゅれ", "ゆせい", "フトンガメ", "高林治紀", "Nettle", "ヒマラヤロードレース", "Lem"))
 st.session_state.preset = preset
 
@@ -92,17 +92,19 @@ if preset == "Alkome":
 elif preset == "るぷろん":
     st.session_state.artist_name = "Chanor|Luphus|​Pulon|帆立|HTT|筑波変拍子音楽研究会"
 elif preset == "corok-Bb":
-    st.session_state.artist_name = "corok-Bb|corok-Pp|corok|DJ Ore|Omunifas|Omunifassm|Northbangerz|ラ​ー​メ​ン​パ​ラ​ダ​イ​ス​オ​ー​ケ​ス​ト​ラ"
+    st.session_state.artist_name = "corok-Bb|corok-Pp|corok|DJ Ore|Omunifas|Omunifassm|Northbangerz|NAZONO_RAMEN"
 elif preset == "kinaphar":
     st.session_state.artist_name = "kinaphar|きなふぁ|rahpanik|Crystarhythm"
 elif preset == "ゆにかーる":
     st.session_state.artist_name = "ゆにかーる|unicurl|uni-c|UNIC|古河ユニック|古河気合筋肉|湯西川将吾"
 elif preset == "Sohwe":
-    st.session_state.artist_name = "Showe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ"
+    st.session_state.artist_name = "Sohwe|SAW|ｙ​ａ​ｓ​ｕ​ｒ​ａ​ｇ​ｉ 🍸 ｄ​ｒ​ｉ​ｎ​ｋ"
 elif preset == "hnxqch":
     st.session_state.artist_name = "hnxqch|&2|豚骨"
 elif preset == "塩":
-    st.session_state.artist_name = "塩|Shion Sakamoto" 
+    st.session_state.artist_name = "塩|Shion Sakamoto| Shi |Shicom" 
+elif preset == "dim.":
+    st.session_state.artist_name = "dim.|うんのやすひろ|moyashi17|町​一​番​の​働​き​蜂​、​ユ​タ|eBANK徳川" 
 elif preset == "TeIXe":
     st.session_state.artist_name = "TeIXe|Piter Robinson"
 elif preset == "1 Room Songs":
