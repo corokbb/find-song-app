@@ -83,7 +83,7 @@ if st.session_state.syaken:
 upcol1, upcol2, _ = st.columns([3, 1, 8])
 preset = upcol1.selectbox(
     'プリセット',
-     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "dim.", "TeIXe", "1 Room Songs", "oblivious", "ねこまりもん", \
+     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "dim.", "TeIXe", "衿", "1 Room Songs", "oblivious", "ねこまりもん", \
            "やわらか浪人生", "人畜無害な人間", "かーぼんぶりゅれ", "ゆせい", "フトンガメ", "高林治紀", "Nettle", "ヒマラヤロードレース", "Lem"))
 st.session_state.preset = preset
 
@@ -107,6 +107,8 @@ elif preset == "dim.":
     st.session_state.artist_name = "dim.|うんのやすひろ|moyashi17|町​一​番​の​働​き​蜂​、​ユ​タ|eBANK徳川" 
 elif preset == "TeIXe":
     st.session_state.artist_name = "TeIXe|Piter Robinson"
+elif preset == "衿":
+    st.session_state.artist_name = "衿"
 elif preset == "1 Room Songs":
     st.session_state.artist_name = "1 Room Songs"
 elif preset == "oblivious":
