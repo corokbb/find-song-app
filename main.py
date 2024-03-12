@@ -83,14 +83,16 @@ if st.session_state.syaken:
 upcol1, upcol2, _ = st.columns([3, 1, 8])
 preset = upcol1.selectbox(
     'プリセット',
-     ('', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "dim.", "TeIXe", "衿", "1 Room Songs", "oblivious", "ねこまりもん", \
-           "やわらか浪人生", "人畜無害な人間", "かーぼんぶりゅれ", "ゆせい", "フトンガメ", "高林治紀", "Nettle", "ヒマラヤロードレース", "Lem"))
+     ('', 'あっくん', 'Alkome','るぷろん', 'corok-Bb', "kinaphar", "ゆにかーる", 'Sohwe', 'hnxqch', '塩', "dim.", "らばす", "TeIXe", "elli mia", "1 Room Songs", "oblivious", "k-u3k", "かーぼんぶりゅれ",  \
+           "人畜無害な人間", "Daiyaki", "高林治紀", "ねこまりもん", "Nettle", "やわらか浪人生",  "ゆせい", "フトンガメ", "Nettle", "ヒマラヤロードレース", "Lem"))
 st.session_state.preset = preset
 
-if preset == "Alkome":
+if preset == "あっくん":
+    st.session_state.artist_name = "あっくん|usutsuki"
+elif preset == "Alkome":
     st.session_state.artist_name = "Alkome|0x63|tukumo99|Temesgen Markos"
 elif preset == "るぷろん":
-    st.session_state.artist_name = "Chanor|Luphus|​Pulon|帆立|HTT|筑波変拍子音楽研究会"
+    st.session_state.artist_name = "Chanor|しゃのあ|Luphus|​Pulon|帆立|HTT|筑波変拍子音楽研究会"
 elif preset == "corok-Bb":
     st.session_state.artist_name = "corok-Bb|corok-Pp|corok|DJ Ore|Omunifas|Omunifassm|Northbangerz|NAZONO_RAMEN"
 elif preset == "kinaphar":
@@ -104,17 +106,25 @@ elif preset == "hnxqch":
 elif preset == "塩":
     st.session_state.artist_name = "塩|Shion Sakamoto| Shi |Shicom" 
 elif preset == "dim.":
-    st.session_state.artist_name = "dim.|うんのやすひろ|moyashi17|町​一​番​の​働​き​蜂​、​ユ​タ|eBANK徳川" 
+    st.session_state.artist_name = "dim.|うんのやすひろ|moyashi17|町​一​番​の​働​き​蜂​|eBANK徳川" 
+elif preset == "らばす":
+    st.session_state.artist_name = "rabasu" 
 elif preset == "TeIXe":
     st.session_state.artist_name = "TeIXe|Piter Robinson"
-elif preset == "衿":
-    st.session_state.artist_name = "衿"
+elif preset == "elli mia":
+    st.session_state.artist_name = "elli mia|衿"
 elif preset == "1 Room Songs":
-    st.session_state.artist_name = "1 Room Songs"
+    st.session_state.artist_name = "1 Room Songs|Age"
 elif preset == "oblivious":
-    st.session_state.artist_name = "oblivious"
+    st.session_state.artist_name = "oblivious|おぶりー|オリビア"
+elif preset == "k-u3k":
+    st.session_state.artist_name = "k-u3k|くさき"
+elif preset == "Daiyaki":
+    st.session_state.artist_name = "Daiyaki"
 elif preset == "ねこまりもん":
-    st.session_state.artist_name = "ねこまりもん"
+    st.session_state.artist_name = "ねこまりもん|ねこまりも"
+elif preset == "Nettle":
+    st.session_state.artist_name = "Nettle|うずくま"
 elif preset == "やわらか浪人生":
     st.session_state.artist_name = "やわらか浪人生|アメミヤトワ"
 elif preset == "人畜無害な人間":
