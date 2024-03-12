@@ -196,6 +196,8 @@ def construct(result):
 
 
 
+
+
 if btn_serach:
     print(text_artist)
     result = df[(df["artist_name"].str.contains(text_artist, case=False)) | (df["music_name"].str.contains(text_artist, case=True))]
